@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
   </head>
   <body>
     <header>
      NAVBAR GOES HERE
     </header>
-
     <main>
-    
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Framework</th>
+              <th scope="col">Stars</th>
+              <th scope="col">Forks</th>
+              <th scope="col">Commits in.. Past Week</th>
+              <th scope="col">Past 4 Weeks</th>
+              <th scope="col">Past Year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">React</th>
+              <td id="react-stars"></td>
+              <td id="react-forks"></td>
+              <td id="react-week"></td>
+              <td id="react-month"></td>
+              <td id="react-year"></td>
+            </tr>
+            <tr>
+              <th scope="row">Angular</th>
+              <td id="ng-stars"></td>
+              <td id="ng-forks"></td>
+              <td id="ng-week"></td>
+              <td id="ng-month"></td>
+              <td id="ng-year"></td>
+            </tr>
+            <tr>
+              <th scope="row">Ember</th>
+              <td id="ember-stars"></td>
+              <td id="ember-forks"></td>
+              <td id="ember-week"></td>
+              <td id="ember-month"></td>
+              <td id="ember-year"></td>
+            </tr>
+            <tr>
+              <th scope="row">Vue</th>
+              <td id="vue-stars"></td>
+              <td id="vue-forks"></td>
+              <td id="vue-week"></td>
+              <td id="vue-month"></td>
+              <td id="vue-year"></td>
+            </tr>
+      </div>
     </main>
     <script src="./src/index.js"></script>
   </body>
