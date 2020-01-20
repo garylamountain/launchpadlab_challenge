@@ -105,7 +105,6 @@ function fetchData(){
         year.innerHTML = i;
     })
     .catch(error => console.error(error));
-
 }
 
 main();
