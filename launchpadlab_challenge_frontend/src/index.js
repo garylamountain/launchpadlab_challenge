@@ -1,6 +1,8 @@
 function main(){
 
-    fetchData();
+    // fetchData();
+
+    () => setInterval(fetchData, 2000, "First parameter", "Second parameter");
 
 }
 
