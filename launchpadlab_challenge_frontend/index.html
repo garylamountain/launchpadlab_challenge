@@ -55,25 +55,26 @@
               <td id="vue-year"></td>
             </tr>
       </div>
-      <div class="dropdown">
+      <div class="dropdown" id="dropdown">
         <div>Which framework do you think is the best?</div>
         <select>
           <option value="none" selected disabled hidden>
             Select One...
           </option>
-          <option value="react">React</option>
+          <option value="React">React</option>
           <option value="Angular">Angular</option>
-          <option value="ember">Ember</option>
-          <option value="vue">Vue</option>
+          <option value="Ember">Ember</option>
+          <option value="Vue">Vue</option>
         </select>
-        <div>
+        <div id="prompt">
           Please enter your email:
         </div>
         <div>
-          <input type="text"></input>
+          <input type="text" id="email"></input>
         </div>
         <button type="button" id="vote" class="btn btn-sm btn-primary">Vote</button>
       </div>
+      <div class="dropdown" id="results"></div>
     </main>
     <script src="./src/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

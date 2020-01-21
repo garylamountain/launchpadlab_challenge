@@ -2,7 +2,62 @@ function main(){
 
     startFetch();
     let voteBtn = document.querySelector('#vote');
-    voteBtn.addEventListener()
+    voteBtn.addEventListener('click', function(){
+        if(document.querySelector('select').value != 'none'){
+        let dropdownDiv = document.querySelector('#dropdown');
+        dropdownDiv.style.display = 'none';
+        fetch('http://localhost:3000/votes')
+        .then(res => res.json())
+        .then(data => {
+
+            let emails = []
+            data.map(vote => {
+                emails.push(vote.email);
+            })
+
+            if(emails.includes(document.querySelector('#email').value)){
+                fetch('http://localhost:3000/frameworks')
+                .then(res => res.json())
+                .then(data => {
+                    let total = data[0].votes + data[1].votes + data[2].votes + data[3].votes;
+                    let results = document.querySelector('#results');
+                    results.innerHTML = `<div>Sorry, you've already voted!</div> 
+                        <div>Current Results:</div>
+                        <div>${data[0].name}: ${(data[0].votes/total * 100).toFixed(1)}%</div>
+                        <div>${data[1].name}: ${(data[1].votes/total * 100).toFixed(1)}%</div>
+                        <div>${data[2].name}: ${(data[2].votes/total * 100).toFixed(1)}%</div>
+                        <div>${data[3].name}: ${(data[3].votes/total * 100).toFixed(1)}%</div>
+                        `;
+                    })
+            } else {
+                fetch('http://localhost:3000/votes', {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "Application/JSON"
+                    },
+                    body: JSON.stringify({email: document.querySelector('#email').value, framework: document.querySelector('select').value})
+                })
+                .then(res => res.json())
+                .then(data => {
+                    let total = data[0].votes + data[1].votes + data[2].votes + data[3].votes;
+                    let results = document.querySelector('#results');
+                    results.innerHTML = `<div>Thanks for voting!</div> 
+                        <div>Results:</div>
+                        <div>${data[0].name}: ${(data[0].votes/total * 100).toFixed(1)}%</div>
+                        <div>${data[1].name}: ${(data[1].votes/total * 100).toFixed(1)}%</div>
+                        <div>${data[2].name}: ${(data[2].votes/total * 100).toFixed(1)}%</div>
+                        <div>${data[3].name}: ${(data[3].votes/total * 100).toFixed(1)}%</div>
+                        `;
+                    })
+            }
+            
+        })
+        .catch(error => console.error(error));
+    } else {
+        let email = document.querySelector('#prompt');
+        email.innerHTML = 'Please enter a valid email address.'
+    }
+    })
 
 }
 
