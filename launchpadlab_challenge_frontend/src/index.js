@@ -1,8 +1,8 @@
 function main(){
 
-    // fetchData();
-
-    () => setInterval(fetchData, 2000, "First parameter", "Second parameter");
+    startFetch();
+    let voteBtn = document.querySelector('#vote');
+    voteBtn.addEventListener()
 
 }
 
@@ -107,6 +107,11 @@ function fetchData(){
         year.innerHTML = i;
     })
     .catch(error => console.error(error));
+}
+
+function startFetch(){
+    fetchData();
+    setInterval(fetchData, 100000);
 }
 
 main();
