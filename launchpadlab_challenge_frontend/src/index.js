@@ -1,9 +1,12 @@
 function main(){
 
     startFetch();
+
     let voteBtn = document.querySelector('#vote');
+
     voteBtn.addEventListener('click', function(){
-        if(document.querySelector('select').value != 'none'){
+
+        if(document.querySelector('select').value != 'none' && validateEmail(document.querySelector('#email').value)){
         let dropdownDiv = document.querySelector('#dropdown');
         dropdownDiv.style.display = 'none';
         fetch('http://localhost:3000/votes')
@@ -53,6 +56,9 @@ function main(){
             
         })
         .catch(error => console.error(error));
+    } else if(document.querySelector('select').value == 'none'){
+        let email = document.querySelector('#prompt');
+        email.innerHTML = 'Please select a framework.'
     } else {
         let email = document.querySelector('#prompt');
         email.innerHTML = 'Please enter a valid email address.'
@@ -167,6 +173,12 @@ function fetchData(){
 function startFetch(){
     fetchData();
     setInterval(fetchData, 100000);
+}
+
+function validateEmail(email) 
+{
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email.toLowerCase());
 }
 
 main();
