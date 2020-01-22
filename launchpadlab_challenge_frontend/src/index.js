@@ -172,7 +172,7 @@ function fetchData(){
 
 function startFetch(){
     fetchData();
-    setInterval(fetchData, 100000);
+    setInterval(fetchData, 30000);
 }
 
 function validateEmail(email) 
