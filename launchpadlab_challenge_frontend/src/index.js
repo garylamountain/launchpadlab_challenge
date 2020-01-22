@@ -9,7 +9,7 @@ function main(){
         if(document.querySelector('select').value != 'none' && validateEmail(document.querySelector('#email').value)){
         let dropdownDiv = document.querySelector('#dropdown');
         dropdownDiv.style.display = 'none';
-        fetch('http://localhost:3000/votes')
+        fetch('https://launchpadlab-challenge-backend.herokuapp.com/votes')
         .then(res => res.json())
         .then(data => {
 
@@ -19,7 +19,7 @@ function main(){
             })
 
             if(emails.includes(document.querySelector('#email').value)){
-                fetch('http://localhost:3000/frameworks')
+                fetch('https://launchpadlab-challenge-backend.herokuapp.com/frameworks')
                 .then(res => res.json())
                 .then(data => {
                     let total = data[0].votes + data[1].votes + data[2].votes + data[3].votes;
@@ -33,7 +33,7 @@ function main(){
                         `;
                     })
             } else {
-                fetch('http://localhost:3000/votes', {
+                fetch('https://launchpadlab-challenge-backend.herokuapp.com/votes', {
                     method: 'POST',
                     headers: {
                         "Content-Type": "Application/JSON"
