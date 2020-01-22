@@ -1,5 +1,9 @@
 # Launchpad Lab Challenge
 
+## Introduction
+
+Please check out the app here: https://launchpadlab-challenge.herokuapp.com/. Both the frontend and backend are currently hosted on Heroku. Using the app is pretty self-explanatory: you can view a bit of information about the four different frameworks in the table, and you can select a framework from the dropdown and press submit to cast your vote (after filling in a valid email address!). After you vote, the current results are given to you. The backend includes an object for each framework that also holds the tally of votes, and it can be accessed here: https://launchpadlab-challenge-backend.herokuapp.com/frameworks.
+
 ## Chronicling the Process
 I'd like to use this section as a sort of journal to record my thought process as I create this app.
 
